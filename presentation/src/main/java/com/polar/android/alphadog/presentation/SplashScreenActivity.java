@@ -1,4 +1,4 @@
-package com.polar.android.alphadog;
+package com.polar.android.alphadog.presentation;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
