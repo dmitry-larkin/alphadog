@@ -1,6 +1,7 @@
 allprojects {
     repositories {
         jcenter()
+        maven { url 'https://maven.fabric.io/public' }
     }
 }
 
@@ -26,6 +27,8 @@ ext {
     androidAnnotationsVersion = '21.0.3'
     storeIOVersion = '1.12.2'
     glideVersion = '3.7.0'
+    crashlyticsVersion = '2.6.6@aar'
+    digitsVersion = '2.0.5@aar'
 
     //Testing
     robolectricVersion = '3.1.1'
@@ -46,7 +49,9 @@ ext {
             rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
             rxAndroid:          "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
             javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
-            glide:              "com.github.bumptech.glide:glide:${glideVersion}"
+            glide:              "com.github.bumptech.glide:glide:${glideVersion}",
+            crashlytics:        "com.crashlytics.sdk.android:crashlytics:${crashlyticsVersion}",
+            digits:             "com.digits.sdk.android:digits:${digitsVersion}"
     ]
 
     presentationTestDependencies = [
