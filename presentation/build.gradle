@@ -37,7 +37,12 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
 
-    buildTypes {}
+    buildTypes {
+        debug{
+            resValue "string", "twitter_key", System.getenv('TWITTER_KEY')
+            resValue "string", "twitter_secret", System.getenv('TWITTER_SECRET')
+        }
+    }
 }
 
 dependencies {
