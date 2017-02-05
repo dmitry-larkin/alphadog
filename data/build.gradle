@@ -38,13 +38,11 @@ dependencies {
     compile project(':domain')
     provided dataDependencies.javaxAnnotation
     compile dataDependencies.javaxInject
-    compile dataDependencies.okHttp
     compile dataDependencies.retrofit
     compile dataDependencies.retrofitJsonConverter
     compile dataDependencies.retrofitRxAdapter
     compile dataDependencies.gson
     compile dataDependencies.rxJava
-    compile dataDependencies.rxAndroid
     compile dataDependencies.storeIO
 
     testCompile testDependencies.junit
