@@ -28,6 +28,10 @@ android {
         testApplicationId globalConfiguration.getAt("testApplicationId")
     }
 
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
@@ -49,9 +53,9 @@ dependencies {
     compile presentationDependencies.recyclerView
     compile presentationDependencies.appCompat
     compile presentationDependencies.supportLib
-    compile presentationDependencies.rxJava
     compile presentationDependencies.rxAndroid
     compile presentationDependencies.glide
+    annotationProcessor presentationDependencies.butterKnifeCompiler
     compile (presentationDependencies.crashlytics) {
         transitive = true;
     }

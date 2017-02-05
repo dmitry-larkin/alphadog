@@ -11,6 +11,7 @@ buildscript {
 }
 
 allprojects {
+
     ext {
         androidApplicationId = 'com.polar.android.alphadog.presentation'
         androidVersionCode = 1
