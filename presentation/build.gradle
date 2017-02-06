@@ -76,3 +76,4 @@ android {
         androidTestCompile presentationTestDependencies.espresso
         androidTestCompile presentationTestDependencies.testingSupportLib
     }
+}
