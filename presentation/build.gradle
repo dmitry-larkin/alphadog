@@ -38,38 +38,41 @@ android {
     }
 
     buildTypes {
-        debug{
+        debug {
             resValue "string", "twitter_key", System.getenv('TWITTER_KEY')
             resValue "string", "twitter_secret", System.getenv('TWITTER_SECRET')
         }
     }
-}
 
-dependencies {
-    def presentationDependencies = rootProject.ext.presentationDependencies
-    def presentationTestDependencies = rootProject.ext.presentationTestDependencies
-
-    compile project(':domain')
-    compile project(':data')
-
-    apt presentationDependencies.daggerCompiler
-    compile presentationDependencies.dagger
-    compile presentationDependencies.butterKnife
-    compile presentationDependencies.recyclerView
-    compile presentationDependencies.appCompat
-    compile presentationDependencies.supportLib
-    compile presentationDependencies.rxAndroid
-    compile presentationDependencies.glide
-    annotationProcessor presentationDependencies.butterKnifeCompiler
-    compile (presentationDependencies.crashlytics) {
-        transitive = true;
+    lintOptions {
+        abortOnError false
     }
-    compile (presentationDependencies.digits) {
-        transitive = true;
-    }
-    provided presentationDependencies.javaxAnnotation
 
-    androidTestCompile presentationTestDependencies.mockito
-    androidTestCompile presentationTestDependencies.espresso
-    androidTestCompile presentationTestDependencies.testingSupportLib
-}
+    dependencies {
+        def presentationDependencies = rootProject.ext.presentationDependencies
+        def presentationTestDependencies = rootProject.ext.presentationTestDependencies
+
+        compile project(':domain')
+        compile project(':data')
+
+        apt presentationDependencies.daggerCompiler
+        compile presentationDependencies.dagger
+        compile presentationDependencies.butterKnife
+        compile presentationDependencies.recyclerView
+        compile presentationDependencies.appCompat
+        compile presentationDependencies.supportLib
+        compile presentationDependencies.rxAndroid
+        compile presentationDependencies.glide
+        annotationProcessor presentationDependencies.butterKnifeCompiler
+        compile(presentationDependencies.crashlytics) {
+            transitive = true;
+        }
+        compile(presentationDependencies.digits) {
+            transitive = true;
+        }
+        provided presentationDependencies.javaxAnnotation
+
+        androidTestCompile presentationTestDependencies.mockito
+        androidTestCompile presentationTestDependencies.espresso
+        androidTestCompile presentationTestDependencies.testingSupportLib
+    }
