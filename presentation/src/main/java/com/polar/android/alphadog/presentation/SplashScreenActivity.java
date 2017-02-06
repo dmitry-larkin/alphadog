@@ -9,8 +9,6 @@ import com.polar.android.alphadog.presentation.login.LoginActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    private final int SPLASH_DISPLAY_LENGTH = 3000;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +19,6 @@ public class SplashScreenActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, SPLASH_DISPLAY_LENGTH);
+        }, getResources().getInteger(R.integer.splash_screen_time));
     }
 }
