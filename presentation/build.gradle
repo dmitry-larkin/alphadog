@@ -61,7 +61,7 @@ android {
         compile presentationDependencies.supportLib
         compile presentationDependencies.rxAndroid
         compile presentationDependencies.glide
-        annotationProcessor presentationDependencies.butterKnifeCompiler
+        apt presentationDependencies.butterKnifeCompiler
         compile(presentationDependencies.crashlytics) {
             transitive = true;
         }
