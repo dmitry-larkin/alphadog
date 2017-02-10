@@ -1,0 +1,14 @@
+[
+	{
+		"petId": 1,
+		"name": "Charlie",
+		"avatar": "2.jpg",
+		"ageInMonths": 26
+	},
+	{
+		"petId": 2,
+		"name": "Smokey",
+		"avatar": "3.jpg",
+		"ageInMonths": 15
+	}
+]
