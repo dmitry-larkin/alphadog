@@ -40,8 +40,8 @@ android {
 
     buildTypes {
         all {
-            /*resValue "string", "twitter_key", System.getenv('TWITTER_KEY')
-            resValue "string", "twitter_secret", System.getenv('TWITTER_SECRET')*/
+            resValue "string", "twitter_key", System.getenv('TWITTER_KEY')
+            resValue "string", "twitter_secret", System.getenv('TWITTER_SECRET')
         }
     }
 
