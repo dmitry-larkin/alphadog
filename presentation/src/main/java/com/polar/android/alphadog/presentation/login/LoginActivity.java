@@ -1,41 +1,57 @@
 package com.polar.android.alphadog.presentation.login;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
-import com.digits.sdk.android.AuthCallback;
 import com.digits.sdk.android.DigitsAuthButton;
-import com.digits.sdk.android.DigitsException;
 import com.digits.sdk.android.DigitsSession;
 import com.polar.android.alphadog.presentation.R;
+import com.polar.android.alphadog.presentation.base.BaseActivity;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * @author Valentin Postnov
  */
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity implements LoginActivityView {
 
     @BindView(R.id.auth_button)
     DigitsAuthButton authButton;
 
+    @Inject
+    LoginActivityPresenter presenter;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        ButterKnife.bind(this);
-        AuthCallback authCallback = new AuthCallback() {
-            @Override
-            public void success(DigitsSession session, String phoneNumber) {
+    public void loginSuccess(DigitsSession session, String phoneNumber) {
+        Log.d("LoginActivity", "success");
+    }
 
-            }
+    @Override
+    public void loginFailure(String error) {
+        Log.e("LoginActivity", error);
+    }
 
-            @Override
-            public void failure(DigitsException exception) {
-            }
-        };
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.attachView(this);
+        presenter.login(authButton);
+    }
 
-        authButton.setCallback(authCallback);
+    @Override
+    protected void initInjection() {
+        getActivityComponent().inject(this);
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.activity_login;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        presenter.detachView();
     }
 }
