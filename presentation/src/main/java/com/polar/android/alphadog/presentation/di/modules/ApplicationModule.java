@@ -5,11 +5,8 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 
 import com.polar.android.alphadog.presentation.App;
-import com.polar.android.alphadog.presentation.di.qualifiers.BaseTransformer;
-import com.polar.android.alphadog.presentation.di.qualifiers.TestTransformer;
 import com.polar.android.alphadog.presentation.utils.BaseRxTransformer;
 import com.polar.android.alphadog.presentation.utils.RxTransformer;
-import com.polar.android.alphadog.presentation.utils.TestRxTransformer;
 
 import javax.inject.Singleton;
 
@@ -49,14 +46,8 @@ public class ApplicationModule {
     }
 
     @Provides
-    @BaseTransformer
-    RxTransformer provideDefaultTransformer() {
+    @Singleton
+    RxTransformer provideBaseRxTransformer() {
         return new BaseRxTransformer();
-    }
-
-    @Provides
-    @TestTransformer
-    RxTransformer provideTestTransformer() {
-        return new TestRxTransformer();
     }
 }

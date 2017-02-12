@@ -27,11 +27,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         initInjection();
     }
 
-    protected abstract void initInjection();
-
-    protected ActivityComponent getActivityComponent() {
+    public ActivityComponent getActivityComponent() {
         return activityComponent;
     }
+
+    protected abstract void initInjection();
 
     @LayoutRes
     protected abstract int getLayout();

@@ -1,6 +1,5 @@
 package com.polar.android.alphadog.presentation.base;
 
-import com.polar.android.alphadog.presentation.di.qualifiers.BaseTransformer;
 import com.polar.android.alphadog.presentation.utils.BaseSingleSubscriber;
 import com.polar.android.alphadog.presentation.utils.BaseSubscriber;
 import com.polar.android.alphadog.presentation.utils.RxTransformer;
@@ -17,7 +16,6 @@ import rx.subscriptions.CompositeSubscription;
 public class BaseMvpPresenter<V extends BaseMvpView> {
 
     @Inject
-    @BaseTransformer
     RxTransformer rxTransformer;
 
     private final CompositeSubscription compositeSubscription;

@@ -29,10 +29,6 @@ android {
         testApplicationId globalConfiguration.getAt("testApplicationId")
     }
 
-    packagingOptions {
-        exclude 'META-INF/rxjava.properties'
-    }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -74,7 +70,8 @@ android {
         }
         provided presentationDependencies.javaxAnnotation
 
-        androidTestCompile presentationTestDependencies.mockito
+        testCompile  presentationTestDependencies.junit
+        testCompile  presentationTestDependencies.mockito
         androidTestCompile presentationTestDependencies.espresso
         androidTestCompile presentationTestDependencies.testingSupportLib
 
