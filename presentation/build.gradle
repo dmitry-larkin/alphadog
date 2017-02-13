@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'io.fabric'
+apply plugin: 'me.tatarka.retrolambda'
 
 buildscript {
     repositories {
@@ -28,13 +29,9 @@ android {
         testApplicationId globalConfiguration.getAt("testApplicationId")
     }
 
-    packagingOptions {
-        exclude 'META-INF/rxjava.properties'
-    }
-
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     buildTypes {
@@ -43,9 +40,12 @@ android {
             resValue "string", "twitter_secret", System.getenv('TWITTER_SECRET')
         }
     }
+
     lintOptions {
         abortOnError false
     }
+
+
     dependencies {
         def presentationDependencies = rootProject.ext.presentationDependencies
         def presentationTestDependencies = rootProject.ext.presentationTestDependencies
@@ -70,8 +70,10 @@ android {
         }
         provided presentationDependencies.javaxAnnotation
 
-        androidTestCompile presentationTestDependencies.mockito
+        testCompile  presentationTestDependencies.junit
+        testCompile  presentationTestDependencies.mockito
         androidTestCompile presentationTestDependencies.espresso
         androidTestCompile presentationTestDependencies.testingSupportLib
+
     }
 }

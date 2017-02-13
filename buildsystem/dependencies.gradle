@@ -17,8 +17,8 @@ ext {
     daggerVersion = '2.8'
     butterKnifeVersion = '8.5.1'
     recyclerViewVersion = '25.0.1'
-    rxJavaVersion = '2.0.5'
-    rxAndroidVersion = '2.0.1'
+    rxJavaVersion = '1.2.6'
+    rxAndroidVersion = '1.2.1'
     javaxAnnotationVersion = '1.0'
     javaxInjectVersion = '1'
     gsonVersion = '2.8.0'
@@ -31,7 +31,7 @@ ext {
     //Testing
     robolectricVersion = '3.1.1'
     jUnitVersion = '4.12'
-    mockitoVersion = '1.9.5'
+    mockitoVersion = '2.7.5'
     espressoVersion = '2.0'
     testingSupportLibVersion = '0.1'
 
@@ -44,8 +44,7 @@ ext {
             dagger:                 "com.google.dagger:dagger:${daggerVersion}",
             butterKnife:            "com.jakewharton:butterknife:${butterKnifeVersion}",
             recyclerView:           "com.android.support:recyclerview-v7:${recyclerViewVersion}",
-            rxJava:                 "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
-            rxAndroid:              "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            rxAndroid:              "io.reactivex:rxandroid:${rxAndroidVersion}",
             javaxAnnotation:        "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             glide:                  "com.github.bumptech.glide:glide:${glideVersion}",
             crashlytics:            "com.crashlytics.sdk.android:crashlytics:${crashlyticsVersion}",
@@ -54,6 +53,7 @@ ext {
     ]
 
     presentationTestDependencies = [
+            junit:              "junit:junit:${jUnitVersion}",
             mockito:            "org.mockito:mockito-core:${mockitoVersion}",
             espresso:           "com.android.support.test.espresso:espresso-core:${espressoVersion}",
             testingSupportLib:  "com.android.support.test:testing-support-lib:${testingSupportLibVersion}"
@@ -62,7 +62,7 @@ ext {
     domainDependencies = [
             javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}",
-            rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+            rxJava:              "io.reactivex:rxjava:${rxJavaVersion}"
     ]
 
     domainTestDependencies = [
@@ -77,7 +77,7 @@ ext {
             retrofitJsonConverter:  "com.squareup.retrofit2:converter-gson:$retrofitVersion",
             retrofitRxAdapter:      "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion",
             gson:                   "com.google.code.gson:gson:${gsonVersion}",
-            rxJava:                 "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxJava:                 "io.reactivex:rxjava:${rxJavaVersion}",
             javaxAnnotation:        "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject:            "javax.inject:javax.inject:${javaxInjectVersion}",
             storeIO:                "com.pushtorefresh.storio:sqlite:${storeIOVersion}"
